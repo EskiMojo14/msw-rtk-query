@@ -1,0 +1,74 @@
+{
+  "name": "msw-rtk-query",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "prepare": "husky",
+    "prebuild": "pnpm run type",
+    "build": "tsup",
+    "test": "vitest",
+    "lint": "eslint",
+    "format": "prettier",
+    "pre-commit": "lint-staged",
+    "attw": "attw",
+    "publint": "publint",
+    "type": "tsc",
+    "prepack": "pnpm run publint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "prettier": {},
+  "lint-staged": {
+    "*.{ts,md}": "prettier --write"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "sourcemap": true,
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "dts": true
+  },
+  "packageManager": "pnpm@9.15.5+sha256.8472168c3e1fd0bff287e694b053fccbbf20579a3ff9526b6333beab8df65a8d",
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.4",
+    "@eslint/js": "^9.23.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "eslint": "^9.23.0",
+    "eslint-import-resolver-typescript": "^4.3.1",
+    "eslint-plugin-import-x": "^4.10.0",
+    "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.4.2",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "publint": "^0.3.9",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0",
+    "vitest": "^3.1.1"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
+    "msw": "^2.7.3"
+  }
+}
