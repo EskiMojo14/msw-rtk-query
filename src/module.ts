@@ -13,6 +13,7 @@ import {
   coreModule,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query";
+import { reactHooksModule } from "@reduxjs/toolkit/query/react";
 import type {
   HttpHandler,
   HttpResponseResolver,
@@ -118,7 +119,11 @@ export const mswModule = (): Module<MswModule> => ({
   },
 });
 
-export const createApi = buildCreateApi(coreModule(), mswModule());
+export const createApi = buildCreateApi(
+  coreModule(),
+  reactHooksModule(), // if you want to use hooks
+  mswModule(),
+);
 
 // example
 
